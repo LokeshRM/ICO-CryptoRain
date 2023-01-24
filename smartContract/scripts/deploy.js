@@ -1,17 +1,17 @@
 const hre = require("hardhat");
 
 async function main() {
-  const ICO = await hre.ethers.getContractFactory("ICO");
-  const ico = await ICO.deploy("0xb106e59e8Ee4CC3a989fFaf1c2C8ecf193F62e1A");
+    const ICO = await hre.ethers.getContractFactory("ICO");
+    const ico = await ICO.deploy("0x5Bfd87426e30151166283da689DB87a2fB32927F");
 
-  await ico.deployed();
+    await ico.deployed();
 
-  console.log("ICO deployed to:", ico.address);
+    console.log("ICO deployed to:", ico.address);
 }
 
 main()
-  .then(() => process.exit(0))
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+    .then(() => process.exit(0))
+    .catch((error) => {
+        console.error(error);
+        process.exit(1);
+    });

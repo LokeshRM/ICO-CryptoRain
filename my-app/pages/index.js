@@ -32,8 +32,8 @@ export default function Home() {
         const instance = await web3modalRef.current.connect();
         const provider = new providers.Web3Provider(instance);
         const { chainId } = await provider.getNetwork();
-        if (chainId !== 3) {
-            window.alert("change network to ropsten");
+        if (chainId !== 5) {
+            window.alert("change network to goerli");
             throw new Error("change to ropsten network");
         }
         if (needSigner) {
@@ -101,7 +101,9 @@ export default function Home() {
             const nft_contract = new Contract(nft_address, nft_abi, provider);
             const signer = await getProvider(true);
             const userAddres = await signer.getAddress();
+            console.log(userAddres);
             const balance = await nft_contract.balanceOf(userAddres);
+
             if (parseInt(balance.toString()) > 0) {
                 let tokens = 0;
                 for (let i = 0; i < balance; i++) {
